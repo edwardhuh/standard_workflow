@@ -10,7 +10,8 @@ repository = "https://github.com/edwardhuh/standard_workflow"
 keywords = ["standard"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
+# the caret means "up to the next major release"
 
 [tool.poetry.dev-dependencies]
 
