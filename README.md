@@ -20,3 +20,15 @@ Personally, as I do not know too much about testing atm, the most compelling rea
 ### naming in src layout
 Use snake case for the package name, as opposed to the kebab case used for the repository name. So, I messed up this time, but note to self!
 
+### registering `cli.py` on `pyproject.toml`:
+```
+[tool.poetry.scripts]
+hypermodern-python = "hypermodern_python.console:main"
+```
+The above chunk needs to be included in the `pyproject.toml`, and the package reinstalled using 
+```
+poetry install
+poetry run hypermodern-python #i.e repo name
+```
+to ensure that the package runs with the command line interface.
+
