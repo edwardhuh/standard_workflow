@@ -6,6 +6,7 @@ https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
 This is a side project solely for my own edification. 
 
 Notes to myself as I work my way through this project:
+## Chapter 1: Setup
 ### TOML
 TOML := Tom’s Obvious, Minimal Language
 A data serialisation language designed to be minimal configuraation file format that's easy to read due to obvious semantics. Used as alternative to YAML and JSON as an unambigious hash table. 
@@ -32,3 +33,4 @@ poetry run hypermodern-python #i.e repo name
 ```
 to ensure that the package runs with the command line interface.
 
+## Chapter 2: Testing
