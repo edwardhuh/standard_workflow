@@ -34,3 +34,35 @@ poetry run hypermodern-python #i.e repo name
 to ensure that the package runs with the command line interface.
 
 ## Chapter 2: Testing
+### __init__.py
+Creating this empty folder serves to declare the test suite as a package.
+This is not necessary, but mirroring the source layout seems to serve multiple benefits that will have to be explored further at a later date.
+
+### click.testing.CliRunner()
+Enables you to invoke cli inside a test.
+Frequently used features of a test can be created into Fixtures
+
+### Code Coverage
+A measure of the degree to which the source code for your program is executed while running its test suite.
+Implemented using `coverage.py`, which is introduced in https://coverage.readthedocs.io/en/coverage-5.3/
+Code Coverage is often used to gauge the effectiveness of tests.
+
+The blog instructs to download `pytest-cov` using:
+```
+poetry add --dev coverage[toml] pytest-cov
+```
+with the additional `[toml]` configuration. But, this does not seem to be necessary, as I was ablew to get the same result using just:
+```
+poetry add --dev pytest-cov
+```
+The author merely claims that having 100% code coverage is important, but does not give full explanation as to what the costs are of actually having less than 100% coverage.
+So, I will heed his advice for this particular project, but will 
+
+### nox
+the tool automates testing in multiple Python environments
+By default, Nox deletes and recreates virtualenvs every time it is run. This is usually fine for most projects and continuous integration environments as pip’s caching makes re-install rather quick.
+But for any other scenario, you may want to consider using the following command for repeated reuse:
+```
+nox -r
+```
+
