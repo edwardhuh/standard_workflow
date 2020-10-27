@@ -6,6 +6,23 @@ https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
 This is a side project solely for my own edification. 
 
 Notes to myself as I work my way through this project:
+## Poetry concerns:
+Throughout this project, I was experiencing `EnvCommandError
+` when attempting to `poetry install`. This is an error that arises due to conflicts in the virtualenv being created by the `poetry` package. The simplest way to solve this problem is to let `poetry` do its magic, by reinstalling the virtual environment.
+* Step 1: Figure out where the environment is by 
+```buildoutcfg
+poetry env info
+>>> /Users/(user)/Library/Caches/pypoetry/virtualenvs/yourvirtualenv/
+```
+* Step 2: Delete the environment path, and re-install the package.
+```buildoutcfg
+rm -rf /Users/(user)/Library/Caches/pypoetry/virtualenvs/yourvirtualenv/
+poetry install
+```
+
+If your poetry concerns remain, another way to fix this problem is to remove `pyproject.toml` and your lock file and recreating the poetry lock file.
+__
+
 ## Chapter 1: Setup
 ### TOML
 TOML := Tom’s Obvious, Minimal Language
@@ -65,4 +82,12 @@ But for any other scenario, you may want to consider using the following command
 ```
 nox -r
 ```
+### pytest-mock
+A unit test should be fast, isolated, and repeatable. This is difficult when the code requires communication with external variables.
+Speed up these external resources (making it fast & isolated) by using unittest.mock
 
+The official explanation (much more eloquent):
+```
+unittest.mock is a library for testing in Python. It allows you to replace parts of your system under test with mock objects and make assertions about how they have been used.
+```
+Similar to nox, we will be using the `pytest-mock` plugin, which thankfully integrates with `pytest`
