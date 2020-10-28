@@ -62,6 +62,8 @@ poetry run hypermodern-python #i.e repo name
 to ensure that the package runs with the command line interface.
 
 ## Chapter 2: Testing
+** Note: I actually was unable to get `nox` to work properly. I would need to come back to the whole testing ordeal.    
+(Updated: 10/28/2020)
 ### __init__.py
 Creating this empty folder serves to declare the test suite as a package.
 This is not necessary, but mirroring the source layout seems to serve multiple benefits that will have to be explored further at a later date.
@@ -118,4 +120,6 @@ Some examples include:
 
 Another useful package in reference to mock testing is the [factory_boy](https://factoryboy.readthedocs.io/en/stable/) package
 
+
+## Chapter 3: Linting
 
