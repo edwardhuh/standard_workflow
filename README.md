@@ -4,6 +4,10 @@ I will be replicating the hypermodern python workflow as described by CLAUDIO JO
 https://cjolowicz.github.io/posts/hypermodern-python-01-setup/
 
 This is a side project solely for my own edification. 
+The blog initializes the project in a roundabout way, but in future projects, I would start with:
+```
+poetry new package-name
+```
 
 Notes to myself as I work my way through this project:
 ## Poetry concerns:
