@@ -21,6 +21,13 @@ poetry install
 ```
 
 If your poetry concerns remain, another way to fix this problem is to remove `pyproject.toml` and your lock file and recreating the poetry lock file.
+
+### Activating poetry venv
+You can initiate poetry virtualenv by using
+```buildoutcfg
+poetry shell
+```
+But, then, you can proceed to type `exit` to leave this environment
 __
 
 ## Chapter 1: Setup
@@ -91,3 +98,20 @@ The official explanation (much more eloquent):
 unittest.mock is a library for testing in Python. It allows you to replace parts of your system under test with mock objects and make assertions about how they have been used.
 ```
 Similar to nox, we will be using the `pytest-mock` plugin, which thankfully integrates with `pytest`
+
+### Refractoring
+Reduce the chunking of your code for testing.
+The `pytest` package seems to encourage this behavior with its `conftest.py` file.
+Fixtures placed in a conftest.py file are discovered automatically, and test modules at the same directory level can use them without explicit import.
+For further reference : https://docs.pytest.org/en/latest/fixture.html#conftest-py-sharing-fixture-functions
+
+### Testing with Doubles
+According to this [blog post](https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da), test doubles are a generic term that encompasses all objects that are used to simplify testing processes.
+Some examples include: 
+* Fake : objects that have working implementations, but are simplifications of real outputs. 
+* Stub : a placeholder of predefined data. Often used because the process of getting actual data is very costly.
+* Mock : objects that register calls they recieve -- used in test assertion to verify the desired reaction.
+
+Another useful package in reference to mock testing is the [factory_boy](https://factoryboy.readthedocs.io/en/stable/) package
+
+
